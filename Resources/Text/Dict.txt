@@ -1,0 +1,96 @@
+dog	con cho
+cat	con meo
+human	con nguoi
+pig	con lon
+horse	con ngua
+chicken	con ga
+fish	con ca
+shrimp	con tom
+crab	con cua
+bird	con chim
+tiger	con ho
+lion	con su tu
+snake	con ran
+python	con tran
+cow	con bo
+buffalo	con trau
+bear	con gau
+panda	con gau truc
+duck	con vit
+swan	con thien nga
+goose	con ngong
+bee	con ong
+rabbit	con tho
+fox	con cao
+wolf	con soi
+cheetah	con bao
+zebra	con ngua van
+sheep	con cuu
+goat	con de
+mouse	con chuot
+giraffe	con huou cao co
+whale	con ca voi
+dolphin	con ca heo
+head	dau
+hair	toc
+eye	mat
+eyebrown	long may
+eyelash	long mi
+nose	mui
+mouth	mieng
+lips	moi
+chin	cam
+cheek	ma
+ear	tai
+chest	nguc
+shoulder	vai
+elbow	khuyu tay
+arm	canh tay
+hand	ban tay
+finger	ngon tay
+thumb	ngon tro
+leg	chan
+knee	dau goi
+ankle	mat ca chan
+foot	ban chan
+student	hoc sinh
+teacher	giao vien
+farmer	nong dan
+artist	hoa si
+singer	ca si
+dancer	vu cong
+businessman	doanh nhan
+police	canh sat
+worker	cong nhan
+scientist	nha khoa hoc
+reporter	phong vien
+journalist	nha bao
+photographer	nhiep anh gia
+writer	nha van
+watermelon	qua dua hau
+potato	cu khoai tay
+peach	qua dao
+tomato	qua ca chua
+carrot	cu ca rot
+mango	qua xoai
+plum	qua man
+pear	qua le
+apple	qua tao
+strawberry	qua dau tay
+mulberry	qua dau tam
+raspberry	qua mam xoi
+blueberry	qua viet quat
+cranberry	qua nam viet quat
+gooseberry	qua ly gai
+blackberry	trai ngay
+pineapple	qua dua
+orange	qua cam
+banana	qua chuoi
+guava	qua oi
+grape	qua nho
+superman	sieu nhan
+greentree	cay xanh
+lol	lol
+dm	fuck
+leo	su tu
+hellokitty	chao meo con
