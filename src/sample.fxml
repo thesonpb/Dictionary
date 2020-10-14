@@ -40,7 +40,7 @@
                                 </Label>
                                 <ImageView fx:id="searchImage" fitHeight="48.0" fitWidth="83.0" layoutX="45.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="file:/F:/TheSon/Codejava/FinalProject1/Resources/Image/unnamed.png" />
+                                        <Image url="file:/F:/TheSon/Codejava/Dict4JavaFX-1/image/unnamed.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -53,19 +53,26 @@
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor></ListView>
-                        <Button fx:id="searchButton" alignment="CENTER" defaultButton="true" layoutX="287.0" layoutY="130.0" mnemonicParsing="false" onAction="#dictionarySearch" prefHeight="53.0" prefWidth="76.0" style="-fx-border-color: rgb(19, 184, 255);" text="Search" AnchorPane.bottomAnchor="535.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="130.0">
-                            <font>
-                                <Font size="17.0" />
-                            </font>
-                        </Button>
-                        <JFXButton buttonType="RAISED" layoutX="293.0" layoutY="200.0" text="Button" />
+                  <JFXButton fx:id="resetButton" layoutX="287.0" layoutY="127.0" onAction="#resetTextField" prefHeight="60.0" prefWidth="12.0">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="file:/F:/TheSon/Codejava/FinalProject1/Resources/Image/x.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Label fx:id="label2" layoutX="45.0" layoutY="120.0" prefHeight="598.0" prefWidth="544.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="304.0" AnchorPane.topAnchor="120.0">
+                        <Label fx:id="label2" alignment="TOP_LEFT" layoutX="14.0" layoutY="136.0" prefHeight="560.0" prefWidth="544.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="335.0" AnchorPane.topAnchor="136.0">
                             <font>
-                                <Font size="24.0" />
+                                <Font size="50.0" />
                             </font></Label>
                         <AnchorPane prefHeight="120.0" prefWidth="893.0" style="-fx-background-color: rgb(105, 189, 210);">
                             <children>
@@ -80,13 +87,19 @@
                                     </font>
                                 </Label>
                                 <FontAwesomeIconView layoutX="26.0" layoutY="82.0" />
+                        <JFXButton fx:id="open2ndwindow" layoutX="447.0" layoutY="68.0" onAction="#exportToFile" text="Export to file" />
                             </children>
                         </AnchorPane>
                         <JFXTabPane layoutX="674.0" layoutY="488.0" prefHeight="598.0" prefWidth="307.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                             <tabs>
                                 <Tab text="Add">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="addWordTextField" layoutX="23.0" layoutY="48.0" />
+                                    <TextField fx:id="addExplainTextField" layoutX="23.0" layoutY="122.0" />
+                                    <Button fx:id="addButton" layoutX="52.0" layoutY="217.0" mnemonicParsing="false" onAction="#addWord" text="Button" />
+                                 </children></AnchorPane>
                                     </content>
                                 </Tab>
                                 <Tab text="Edit">

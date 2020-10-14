@@ -1,9 +1,8 @@
+import java.io.*;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class DictionaryManagement {
+
     protected static Dictionary envi = new Dictionary();
 
     /**
