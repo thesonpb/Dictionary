@@ -34,6 +34,8 @@ public class Controller extends DictionaryManagement implements Initializable {
     public TextField fileNameTextField;
     public Button createTextFileButton;
     public ListView recentListView;
+    public Button deleteButton;
+    public TextField deleteTextField;
 
 
     ObservableList<String> data = FXCollections.observableArrayList();
@@ -67,7 +69,7 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     public void displayWordAndAddToRecent(MouseEvent actionEvent) {
         String word = listView.getSelectionModel().getSelectedItem();
-        if(recentData.contains(word)) recentData.remove(word);
+        if (recentData.contains(word)) recentData.remove(word);
         recentData.add(word);
         recentListView.getItems().clear();
         recentListView.getItems().addAll(recentData);
@@ -89,9 +91,9 @@ public class Controller extends DictionaryManagement implements Initializable {
         //envi.words.put(addWordTextField.getText(), addExplainTextField.getText());
         //viet vao trong file input
         try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\FinalProject1\\Resources\\Text\\Dict.txt", true);
+            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt", true);
             BufferedWriter out = new BufferedWriter(myWriter);
-            out.write(addWordTextField.getText() + "\t" + addExplainTextField.getText() +"\n");
+            out.write(addWordTextField.getText() + "\t" + addExplainTextField.getText() + "\n");
             out.close();
         } catch (IOException e) {
             System.out.println("an error occured");
@@ -100,7 +102,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         //xoa het tu trong map
         envi.words.clear();
         //insert lai vao trong map
-        insertFromFile("F:\\TheSon\\Codejava\\FinalProject1\\Resources\\Text\\Dict.txt");
+        insertFromFile("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
         //hien thi lai danh sach tu
         dictionarySearch("");
     }
@@ -109,8 +111,22 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     }
 
-    public void deleteWord(ActionEvent actionEvent) {
-
+    public void deleteWord(ActionEvent actionEvent) throws IOException {
+        //xoa trong tu dien
+        if (envi.words.containsKey(deleteTextField.getText())) envi.words.remove(deleteTextField.getText());
+        dictionarySearch("");
+        //viet lai file text theo tu dien
+        try {
+            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
+            BufferedWriter out = new BufferedWriter(myWriter);
+            for (String key : DictionaryManagement.envi.words.keySet()) {
+                out.write(key + "\t" + envi.words.get(key) + "\n");
+            }
+            out.close();
+        } catch (IOException e) {
+            System.out.println("an error occured");
+            e.printStackTrace();
+        }
     }
 
     public void resetTextField(ActionEvent actionEvent) {
@@ -120,7 +136,7 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     public void createTextFile(ActionEvent actionEvent) {
         try {
-            File myFile = new File(fileNameTextField.getText()+".txt");
+            File myFile = new File(fileNameTextField.getText() + ".txt");
             if (myFile.createNewFile()) {
                 System.out.println("File created: " + myFile.getName());
             } else {
@@ -132,7 +148,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         }
         //viết vào file.
         try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\FinalProject1\\"+fileNameTextField.getText()+".txt");
+            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\" + fileNameTextField.getText() + ".txt");
             for (String key : envi.words.keySet()) {
                 myWriter.write(key + "\t" + envi.words.get(key) + "\n");
             }

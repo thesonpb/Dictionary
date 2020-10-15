@@ -30,7 +30,7 @@ public class DictionaryCommandline extends DictionaryManagement {
      * ver2.
      */
     public static void dictionaryAdvanced() throws Exception {
-        DictionaryManagement.insertFromFile("F:\\TheSon\\Codejava\\FinalProject1\\Resources\\Text\\Dict.txt");
+        DictionaryManagement.insertFromFile("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
         showAllWords();
         DictionaryManagement.dictionaryLookUp();
     }

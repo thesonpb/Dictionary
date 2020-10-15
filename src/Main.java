@@ -22,7 +22,7 @@ public class Main extends Application {
 
     public static void main(String[] args) throws Exception {
 
-        DictionaryManagement.insertFromFile("F:\\TheSon\\Codejava\\FinalProject1\\Resources\\Text\\Dict.txt");
+        DictionaryManagement.insertFromFile("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
         DictionaryCommandline.showAllWords();
         launch(args);
     }
