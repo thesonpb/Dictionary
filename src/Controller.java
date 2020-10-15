@@ -30,38 +30,20 @@ public class Controller extends DictionaryManagement implements Initializable {
     public TextField addExplainTextField;
     public TextField addWordTextField;
     public JFXButton resetButton;
-    public JFXButton open2ndwindow;
     public Button addButton;
     public TextField fileNameTextField;
     public Button createTextFileButton;
+    public ListView recentListView;
 
 
     ObservableList<String> data = FXCollections.observableArrayList();
-
+    ObservableList<String> recentData = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadData();
         //lấy dữ liệu được nhập vào trong thanh tìm kiếm để tìm từ tương tự
         textField.textProperty().addListener((observable, oldValue, newValue) -> dictionarySearch(newValue));
-
-        //taọ cửa sổ thứ 2 để export to file
-        /*
-        Stage secondWindow = new Stage();
-        Parent root2 = null;
-        try {
-            root2 = FXMLLoader.load(getClass().getResource("window2.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        secondWindow.setTitle("Export to file");
-
-        secondWindow.setScene(new Scene(root2, 800, 600));
-        open2ndwindow.setOnAction(event -> secondWindow.show());
-
-
-         */
-
     }
 
     private void loadData() {
@@ -83,8 +65,12 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     }
 
-    public void displayWord(MouseEvent actionEvent) {
+    public void displayWordAndAddToRecent(MouseEvent actionEvent) {
         String word = listView.getSelectionModel().getSelectedItem();
+        if(recentData.contains(word)) recentData.remove(word);
+        recentData.add(word);
+        recentListView.getItems().clear();
+        recentListView.getItems().addAll(recentData);
         String definition = new String();
         if (word == null || word.isEmpty()) {
             label2.setText("");
@@ -132,31 +118,6 @@ public class Controller extends DictionaryManagement implements Initializable {
         label2.setText("");
     }
 
-    public void exportToFile(ActionEvent actionEvent) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Scene scene = new Scene(pane);
-        Stage secondWindow = new Stage();
-        secondWindow.setTitle("Export to file");
-        secondWindow.setScene(scene);
-        secondWindow.show();
-        /*
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("window2.fxml"));
-
-            AnchorPane rootLayout = loader.load();
-            Scene scene = new Scene(rootLayout);
-            Stage exportToFileWindow = new Stage();
-            exportToFileWindow.setTitle("Choose destination");
-            exportToFileWindow.setScene(scene);
-            exportToFileWindow.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-         */
-    }
-
     public void createTextFile(ActionEvent actionEvent) {
         try {
             File myFile = new File(fileNameTextField.getText()+".txt");
@@ -171,7 +132,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         }
         //viết vào file.
         try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\FinalProject1\\Resources\\Text\\"+fileNameTextField.getText()+"txt");
+            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\FinalProject1\\"+fileNameTextField.getText()+".txt");
             for (String key : envi.words.keySet()) {
                 myWriter.write(key + "\t" + envi.words.get(key) + "\n");
             }
