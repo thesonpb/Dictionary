@@ -1,5 +1,6 @@
 apple	Quả táo
 assume	Giả định
+baby	em bé
 bear	con gau
 bee	con ong
 bird	con chim
@@ -57,7 +58,7 @@ mouse	con chuot
 mouth	mieng
 mulberry	qua dau tam
 nose	mui
-orange	qua cam
+orange	quả cam
 panda	con gau truc
 peach	qua dao
 pear	qua le
@@ -92,4 +93,4 @@ wolf	con soi
 worker	cong nhan
 writer	nha van
 zebra	con ngua van
-baby	em bé
+Attack	Tấn công

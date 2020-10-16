@@ -151,8 +151,10 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     public void deleteWord(ActionEvent actionEvent) throws IOException {
         //xoa trong tu dien
-        if (envi.words.containsKey(deleteTextField.getText())) envi.words.remove(deleteTextField.getText());
-        dictionarySearch("");
+        if (envi.words.containsKey(deleteTextField.getText())) {
+            envi.words.remove(deleteTextField.getText());
+
+        dictionarySearch(""); }
         //viet lai file text theo tu dien
         try {
             FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
