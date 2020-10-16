@@ -1,4 +1,5 @@
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,6 +37,10 @@ public class Controller extends DictionaryManagement implements Initializable {
     public ListView recentListView;
     public Button deleteButton;
     public TextField deleteTextField;
+    public Button editButton;
+    public TextField editWordTextField;
+    public TextField newWordTextField;
+    public TextField newWordExplainTextField;
 
 
     ObservableList<String> data = FXCollections.observableArrayList();
@@ -107,9 +112,42 @@ public class Controller extends DictionaryManagement implements Initializable {
         dictionarySearch("");
     }
 
-    public void editWord(ActionEvent actionEvent) {
+    public void editWord(ActionEvent actionEvent) throws Exception {
+        if (envi.words.containsKey(editWordTextField.getText())) {
+            envi.words.remove(editWordTextField.getText());
+            //addWord(newWordTextField.getText(), newWordExplainTextField.getText());
+        }
+        dictionarySearch("");
 
+        try {
+            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
+            BufferedWriter out = new BufferedWriter(myWriter);
+            for (String key : DictionaryManagement.envi.words.keySet()) {
+                out.write(key + "\t" + envi.words.get(key) + "\n");
+            }
+            out.close();
+        } catch (IOException e) {
+            System.out.println("an error occured");
+            e.printStackTrace();
+        }
+
+        try {
+            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt", true);
+            BufferedWriter out = new BufferedWriter(myWriter);
+            out.write(newWordTextField.getText() + "\t" + newWordExplainTextField.getText() + "\n");
+            out.close();
+        } catch (IOException e) {
+            System.out.println("an error occured");
+            e.printStackTrace();
+        }
+        //xoa het tu trong map
+        envi.words.clear();
+        //insert lai vao trong map
+        insertFromFile("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
+        //hien thi lai danh sach tu
+        dictionarySearch("");
     }
+
 
     public void deleteWord(ActionEvent actionEvent) throws IOException {
         //xoa trong tu dien

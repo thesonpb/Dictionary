@@ -77,7 +77,7 @@
                            <content>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Label fx:id="label2" alignment="TOP_LEFT" layoutX="95.0" layoutY="121.0" prefHeight="561.0" prefWidth="586.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Label fx:id="label2" alignment="TOP_LEFT" layoutX="95.0" layoutY="-5.0" prefHeight="566.0" prefWidth="586.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
                                        <font>
                                           <Font size="45.0" />
                                        </font>
@@ -118,9 +118,9 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="addWordTextField" layoutX="23.0" layoutY="48.0" />
-                                    <TextField fx:id="addExplainTextField" layoutX="23.0" layoutY="122.0" />
-                                    <Button fx:id="addButton" layoutX="52.0" layoutY="217.0" mnemonicParsing="false" onAction="#addWord" text="Button" />
+                                    <TextField fx:id="addWordTextField" layoutX="60.0" layoutY="48.0" />
+                                    <TextField fx:id="addExplainTextField" layoutX="60.0" layoutY="113.0" />
+                                    <Button fx:id="addButton" layoutX="130.0" layoutY="186.0" mnemonicParsing="false" onAction="#addWord" text="Add" />
                                  </children></AnchorPane>
                                     </content>
                                 </Tab>
@@ -129,7 +129,10 @@
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
                                                 <Separator layoutX="302.0" layoutY="-37.0" orientation="VERTICAL" prefHeight="598.0" prefWidth="0.0" AnchorPane.bottomAnchor="157.0" />
-                                    <Button layoutX="89.0" layoutY="134.0" mnemonicParsing="false" text="Button" />
+                                    <Button fx:id="editButton" layoutX="99.0" layoutY="175.0" mnemonicParsing="false" onAction="#editWord" text="Edit" />
+                                    <TextField fx:id="editWordTextField" layoutX="38.0" layoutY="25.0" />
+                                    <TextField fx:id="newWordTextField" layoutX="38.0" layoutY="68.0" />
+                                    <TextField fx:id="newWordExplainTextField" layoutX="38.0" layoutY="117.0" />
                                             </children>
                                         </AnchorPane>
                                     </content>

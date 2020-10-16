@@ -1,4 +1,5 @@
-apple	qua tao
+apple	Quả táo
+assume	Giả định
 bear	con gau
 bee	con ong
 bird	con chim
@@ -40,6 +41,7 @@ guava	qua oi
 hair	toc
 hand	ban tay
 head	dau
+hello	xin chao
 hellokitty	chao meo con
 horse	con ngua
 human	con nguoi
@@ -90,3 +92,4 @@ wolf	con soi
 worker	cong nhan
 writer	nha van
 zebra	con ngua van
+baby	em bé
