@@ -1,6 +1,7 @@
-Attack	Tấn công
 apple	Quả táo
+artist	nghệ sĩ
 assume	Giả định
+babe	bé yêu
 baby	em bé
 bear	con gau
 bee	con ong
@@ -94,4 +95,3 @@ wolf	con soi
 worker	cong nhan
 writer	nha van
 zebra	con ngua van
-babe	bé yêu

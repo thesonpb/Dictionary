@@ -96,7 +96,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         //envi.words.put(addWordTextField.getText(), addExplainTextField.getText());
         //viet vao trong file input
         try {
-            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt", true);
+            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt", true);
             BufferedWriter out = new BufferedWriter(myWriter);
             out.write(addWordTextField.getText() + "\t" + addExplainTextField.getText() + "\n");
             out.close();
@@ -107,7 +107,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         //xoa het tu trong map
         envi.words.clear();
         //insert lai vao trong map
-        insertFromFile("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
+        insertFromFile("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
         //hien thi lai danh sach tu
         dictionarySearch("");
     }
@@ -120,7 +120,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         dictionarySearch("");
 
         try {
-            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
+            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
             BufferedWriter out = new BufferedWriter(myWriter);
             for (String key : DictionaryManagement.envi.words.keySet()) {
                 out.write(key + "\t" + envi.words.get(key) + "\n");
@@ -132,7 +132,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         }
 
         try {
-            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt", true);
+            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt", true);
             BufferedWriter out = new BufferedWriter(myWriter);
             out.write(newWordTextField.getText() + "\t" + newWordExplainTextField.getText() + "\n");
             out.close();
@@ -143,7 +143,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         //xoa het tu trong map
         envi.words.clear();
         //insert lai vao trong map
-        insertFromFile("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
+        insertFromFile("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
         //hien thi lai danh sach tu
         dictionarySearch("");
     }
@@ -157,7 +157,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         dictionarySearch(""); }
         //viet lai file text theo tu dien
         try {
-            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\Resources\\Text\\Dict.txt");
+            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
             BufferedWriter out = new BufferedWriter(myWriter);
             for (String key : DictionaryManagement.envi.words.keySet()) {
                 out.write(key + "\t" + envi.words.get(key) + "\n");
@@ -188,7 +188,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         }
         //viết vào file.
         try {
-            FileWriter myWriter = new FileWriter("D:\\Java\\Dictionaryfinal\\" + fileNameTextField.getText() + ".txt");
+            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\" + fileNameTextField.getText() + ".txt");
             for (String key : envi.words.keySet()) {
                 myWriter.write(key + "\t" + envi.words.get(key) + "\n");
             }

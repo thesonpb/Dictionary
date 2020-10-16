@@ -41,7 +41,7 @@
                                 </Label>
                                 <ImageView fx:id="searchImage" fitHeight="48.0" fitWidth="83.0" layoutX="45.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="file:/D:/Java/Dictionaryfinal/Resources/Image/unnamed.png" />
+                                        <Image url="file:/F:/TheSon/Codejava/DictionaryFinal3/Resources/Image/unnamed.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -61,7 +61,7 @@
                      <graphic>
                         <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="file:/D:/Java/Dictionaryfinal/Resources/Image/x.jpg" />
+                              <Image url="file:/F:/TheSon/Codejava/DictionaryFinal3/Resources/Image/x.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -118,8 +118,8 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="addWordTextField" layoutX="60.0" layoutY="48.0" />
-                                    <TextField fx:id="addExplainTextField" layoutX="60.0" layoutY="113.0" />
+                                    <TextField fx:id="addWordTextField" layoutX="60.0" layoutY="48.0" promptText="Enter your new word" />
+                                    <TextField fx:id="addExplainTextField" layoutX="60.0" layoutY="113.0" promptText="Enter your word explain" />
                                     <Button fx:id="addButton" layoutX="130.0" layoutY="186.0" mnemonicParsing="false" onAction="#addWord" text="Add" />
                                  </children></AnchorPane>
                                     </content>
@@ -130,9 +130,9 @@
                                             <children>
                                                 <Separator layoutX="302.0" layoutY="-37.0" orientation="VERTICAL" prefHeight="598.0" prefWidth="0.0" AnchorPane.bottomAnchor="157.0" />
                                     <Button fx:id="editButton" layoutX="99.0" layoutY="175.0" mnemonicParsing="false" onAction="#editWord" text="Edit" />
-                                    <TextField fx:id="editWordTextField" layoutX="38.0" layoutY="25.0" />
-                                    <TextField fx:id="newWordTextField" layoutX="38.0" layoutY="68.0" />
-                                    <TextField fx:id="newWordExplainTextField" layoutX="38.0" layoutY="117.0" />
+                                    <TextField fx:id="editWordTextField" layoutX="38.0" layoutY="25.0" promptText="Enter your word" />
+                                    <TextField fx:id="newWordTextField" layoutX="38.0" layoutY="68.0" promptText="Edit your word" />
+                                    <TextField fx:id="newWordExplainTextField" layoutX="38.0" layoutY="117.0" promptText="Edit your word explain" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -141,7 +141,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="deleteTextField" layoutX="51.0" layoutY="54.0" />
+                                    <TextField fx:id="deleteTextField" layoutX="51.0" layoutY="54.0" promptText="Enter your word" />
                                     <Button fx:id="deleteButton" layoutX="51.0" layoutY="164.0" mnemonicParsing="false" onAction="#deleteWord" text="Delete" />
                                  </children></AnchorPane>
                                     </content>
