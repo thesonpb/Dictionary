@@ -110,42 +110,35 @@ public class Controller extends DictionaryManagement implements Initializable {
         insertFromFile("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
         //hien thi lai danh sach tu
         dictionarySearch("");
+        label2.setText("You added the word '" + addWordTextField.getText() + "'!");
+        addWordTextField.setText("");
+        addExplainTextField.setText("");
     }
 
     public void editWord(ActionEvent actionEvent) throws Exception {
         if (envi.words.containsKey(editWordTextField.getText())) {
             envi.words.remove(editWordTextField.getText());
-            //addWord(newWordTextField.getText(), newWordExplainTextField.getText());
-        }
-        dictionarySearch("");
-
-        try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
-            BufferedWriter out = new BufferedWriter(myWriter);
-            for (String key : DictionaryManagement.envi.words.keySet()) {
-                out.write(key + "\t" + envi.words.get(key) + "\n");
+            envi.words.put(newWordTextField.getText(), newWordExplainTextField.getText());
+            try {
+                FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
+                BufferedWriter out = new BufferedWriter(myWriter);
+                for (String key : DictionaryManagement.envi.words.keySet()) {
+                    out.write(key + "\t" + envi.words.get(key) + "\n");
+                }
+                out.close();
+            } catch (IOException e) {
+                System.out.println("an error occured");
+                e.printStackTrace();
             }
-            out.close();
-        } catch (IOException e) {
-            System.out.println("an error occured");
-            e.printStackTrace();
+            label2.setText("You changed the word '" + "\n" + editWordTextField.getText() + "' to '" + newWordTextField.getText() + "'!");
+            editWordTextField.setText("");
+            newWordTextField.setText("");
+            newWordExplainTextField.setText("");
+        } else {
+            label2.setText("Word not found!");
         }
-
-        try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt", true);
-            BufferedWriter out = new BufferedWriter(myWriter);
-            out.write(newWordTextField.getText() + "\t" + newWordExplainTextField.getText() + "\n");
-            out.close();
-        } catch (IOException e) {
-            System.out.println("an error occured");
-            e.printStackTrace();
-        }
-        //xoa het tu trong map
-        envi.words.clear();
-        //insert lai vao trong map
-        insertFromFile("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
-        //hien thi lai danh sach tu
         dictionarySearch("");
+
     }
 
 
@@ -154,19 +147,26 @@ public class Controller extends DictionaryManagement implements Initializable {
         if (envi.words.containsKey(deleteTextField.getText())) {
             envi.words.remove(deleteTextField.getText());
 
-        dictionarySearch(""); }
-        //viet lai file text theo tu dien
-        try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
-            BufferedWriter out = new BufferedWriter(myWriter);
-            for (String key : DictionaryManagement.envi.words.keySet()) {
-                out.write(key + "\t" + envi.words.get(key) + "\n");
+            //viet lai file text theo tu dien
+            try {
+                FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
+                BufferedWriter out = new BufferedWriter(myWriter);
+                for (String key : DictionaryManagement.envi.words.keySet()) {
+                    out.write(key + "\t" + envi.words.get(key) + "\n");
+                }
+                out.close();
+            } catch (IOException e) {
+                System.out.println("an error occured");
+                e.printStackTrace();
             }
-            out.close();
-        } catch (IOException e) {
-            System.out.println("an error occured");
-            e.printStackTrace();
+            label2.setText("You deleted the word '" + deleteTextField.getText() + "'!");
+            deleteTextField.setText("");
+        } else {
+            label2.setText("Word not found!");
         }
+        dictionarySearch("");
+
+
     }
 
     public void resetTextField(ActionEvent actionEvent) {
@@ -197,5 +197,7 @@ public class Controller extends DictionaryManagement implements Initializable {
             System.out.println("an error occured");
             e.printStackTrace();
         }
+        label2.setText("You exported the \n dictionary to file \n'" + fileNameTextField.getText() + ".txt'!");
+        fileNameTextField.setText("");
     }
 }

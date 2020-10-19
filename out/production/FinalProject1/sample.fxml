@@ -2,14 +2,12 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -17,6 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -28,56 +27,58 @@
         <ColumnConstraints />
     </columnConstraints>
     <children>
-        <SplitPane dividerPositions="0.29797979797979796" prefHeight="720.0" prefWidth="1280.0">
-            <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="718.0" prefWidth="0.0">
+      <HBox prefHeight="720.0" prefWidth="1280.0">
+         <children>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="960.0" prefWidth="346.0">
                     <children>
-                        <AnchorPane prefHeight="120.0" prefWidth="377.0" style="-fx-background-color: rgb(25, 131, 169);" AnchorPane.bottomAnchor="598.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutY="-29.0" prefHeight="131.0" prefWidth="346.0" style="-fx-background-color: rgb(105, 189, 210);" AnchorPane.bottomAnchor="589.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
                                 <Label layoutX="100.0" layoutY="48.0" prefHeight="52.0" prefWidth="178.0" style="-fx-underline: true; -fx-font-weight: bold; -fx-font-size: 45;" text="Search" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.0">
                                     <font>
                                         <Font size="38.0" />
                                     </font>
                                 </Label>
-                                <ImageView fx:id="searchImage" fitHeight="48.0" fitWidth="83.0" layoutX="45.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="searchImage" fitHeight="23.0" fitWidth="22.0" layoutX="72.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="file:/D:/Java/Dictionaryfinal/Resources/Image/unnamed.png" />
+                                        <Image url="file:/F:/TheSon/Codejava/DictionaryFinal3/Resources/Image/unnamed.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </AnchorPane>
-                        <TextField fx:id="textField" layoutX="21.0" layoutY="130.0" prefHeight="0.0" prefWidth="255.0" promptText="Enter your word here" style="-fx-border-color: rgb(19, 184, 255);">
+                        <TextField fx:id="textField" layoutX="-1.0" layoutY="130.0" prefHeight="53.0" prefWidth="290.0" promptText="Enter your word here" style="-fx-border-color: rgb(19, 184, 255);">
                             <font>
                                 <Font size="24.0" />
-                            </font></TextField>
-                        <ListView fx:id="listView" layoutX="21.0" layoutY="183.0" onMouseClicked="#displayWordAndAddToRecent" prefHeight="535.0" prefWidth="255.0" style="-fx-font-size: 24;">
+                            </font>
+                  </TextField>
+                        <ListView fx:id="listView" layoutY="183.0" onMouseClicked="#displayWordAndAddToRecent" prefHeight="537.0" prefWidth="346.0" style="-fx-font-size: 24;">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
-                            </cursor></ListView>
-                  <JFXButton fx:id="resetButton" layoutX="287.0" layoutY="127.0" onAction="#resetTextField" prefHeight="60.0" prefWidth="12.0">
+                            </cursor>
+                  </ListView>
+                  <JFXButton fx:id="resetButton" layoutX="287.0" layoutY="131.0" onAction="#resetTextField" prefHeight="53.0" prefWidth="62.0">
                      <font>
                         <Font size="1.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="53.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="file:/D:/Java/Dictionaryfinal/Resources/Image/x.jpg" />
+                              <Image url="file:/F:/TheSon/Codejava/DictionaryFinal3/Resources/Image/x.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
                   </JFXButton>
 
-                    </children>
+                                </children>
                 </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="960.0" prefWidth="934.0">
                     <children>
-                  <JFXTabPane layoutY="120.0" prefHeight="598.0" prefWidth="586.0">
+                  <JFXTabPane layoutY="131.0" prefHeight="591.0" prefWidth="627.0">
                      <tabs>
                         <Tab text="Definition">
                            <content>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                              <AnchorPane prefHeight="200.0" prefWidth="627.0">
                                  <children>
-                                    <Label fx:id="label2" alignment="TOP_LEFT" layoutX="95.0" layoutY="-5.0" prefHeight="566.0" prefWidth="586.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
+                                    <Label fx:id="label2" alignment="TOP_LEFT" layoutX="95.0" layoutY="-5.0" prefHeight="640.0" prefWidth="627.0" style="-fx-font-weight: bold;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
                                        <font>
                                           <Font size="45.0" />
                                        </font>
@@ -97,7 +98,7 @@
                         </Tab>
                      </tabs>
                   </JFXTabPane>
-                        <AnchorPane prefHeight="120.0" prefWidth="893.0" style="-fx-background-color: rgb(105, 189, 210);">
+                        <AnchorPane prefHeight="131.0" prefWidth="934.0" style="-fx-background-color: rgb(105, 189, 210);">
                             <children>
                                 <Label layoutX="50.0" layoutY="45.0" prefHeight="53.0" prefWidth="239.0" style="-fx-underline: true; -fx-font-weight: bold; -fx-font-size: 45;" text="Definition">
                                     <font>
@@ -109,19 +110,21 @@
                                         <Font size="40.0" />
                                     </font>
                                 </Label>
-                                <FontAwesomeIconView layoutX="26.0" layoutY="82.0" />
+                                <FontAwesomeIconView layoutX="26.0" layoutY="82.0" size="15" />
+                        <FontAwesomeIconView glyphName="GEAR" layoutX="629.0" layoutY="83.0" size="15" />
                             </children>
                         </AnchorPane>
-                        <JFXTabPane layoutX="674.0" layoutY="488.0" prefHeight="598.0" prefWidth="307.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <JFXTabPane layoutX="674.0" layoutY="488.0" prefHeight="591.0" prefWidth="307.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                             <tabs>
                                 <Tab text="Add">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="addWordTextField" layoutX="60.0" layoutY="48.0" />
-                                    <TextField fx:id="addExplainTextField" layoutX="60.0" layoutY="113.0" />
-                                    <Button fx:id="addButton" layoutX="130.0" layoutY="186.0" mnemonicParsing="false" onAction="#addWord" text="Add" />
-                                 </children></AnchorPane>
+                                    <TextField fx:id="addWordTextField" layoutX="60.0" layoutY="48.0" promptText="Enter your new word" />
+                                    <TextField fx:id="addExplainTextField" layoutX="60.0" layoutY="113.0" promptText="Enter your word explain" />
+                                    <Button fx:id="addButton" layoutX="60.0" layoutY="178.0" mnemonicParsing="false" onAction="#addWord" text="Add" />
+                                 </children>
+                              </AnchorPane>
                                     </content>
                                 </Tab>
                                 <Tab text="Edit">
@@ -129,10 +132,10 @@
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
                                                 <Separator layoutX="302.0" layoutY="-37.0" orientation="VERTICAL" prefHeight="598.0" prefWidth="0.0" AnchorPane.bottomAnchor="157.0" />
-                                    <Button fx:id="editButton" layoutX="99.0" layoutY="175.0" mnemonicParsing="false" onAction="#editWord" text="Edit" />
-                                    <TextField fx:id="editWordTextField" layoutX="38.0" layoutY="25.0" />
-                                    <TextField fx:id="newWordTextField" layoutX="38.0" layoutY="68.0" />
-                                    <TextField fx:id="newWordExplainTextField" layoutX="38.0" layoutY="117.0" />
+                                    <Button fx:id="editButton" layoutX="48.0" layoutY="239.0" mnemonicParsing="false" onAction="#editWord" text="Edit" />
+                                    <TextField fx:id="editWordTextField" layoutX="48.0" layoutY="53.0" promptText="Enter your word" />
+                                    <TextField fx:id="newWordTextField" layoutX="48.0" layoutY="116.0" promptText="Edit your word" />
+                                    <TextField fx:id="newWordExplainTextField" layoutX="48.0" layoutY="181.0" promptText="Edit your word explain" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -141,25 +144,27 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="deleteTextField" layoutX="51.0" layoutY="54.0" />
-                                    <Button fx:id="deleteButton" layoutX="51.0" layoutY="164.0" mnemonicParsing="false" onAction="#deleteWord" text="Delete" />
-                                 </children></AnchorPane>
+                                    <TextField fx:id="deleteTextField" layoutX="51.0" layoutY="54.0" promptText="Enter your word" />
+                                    <Button fx:id="deleteButton" layoutX="51.0" layoutY="119.0" mnemonicParsing="false" onAction="#deleteWord" text="Delete" />
+                                 </children>
+                              </AnchorPane>
                                     </content>
                                 </Tab>
                         <Tab text="Export to file">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXTextField fx:id="fileNameTextField" layoutX="53.0" layoutY="90.0" promptText="Enter your file name" />
-                                    <JFXButton fx:id="createTextFileButton" layoutX="53.0" layoutY="196.0" onAction="#createTextFile" text="Export" />
+                                    <TextField fx:id="fileNameTextField" layoutX="53.0" layoutY="61.0" promptText="Enter your text file" />
+                                    <Button fx:id="createTextFileButton" layoutX="53.0" layoutY="124.0" mnemonicParsing="false" onAction="#createTextFile" text="Export" />
                                  </children>
                               </AnchorPane>
                           </content>
                         </Tab>
                             </tabs>
                         </JFXTabPane>
-                    </children></AnchorPane>
-            </items>
-        </SplitPane>
+                    </children>
+            </AnchorPane>
+         </children>
+      </HBox>
     </children>
 </GridPane>
