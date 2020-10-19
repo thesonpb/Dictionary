@@ -14,7 +14,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         //Image image = new Image(getClass().getResourceAsStream("/Resources/Image/icon.png"));
         //primaryStage.getIcons().add(image);
-        primaryStage.setTitle("Dictionary Application");
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        primaryStage.setTitle("Homemade Dictionary");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
     }
