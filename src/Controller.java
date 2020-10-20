@@ -1,3 +1,5 @@
+import com.gtranslate.Audio;
+import com.gtranslate.Language;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
@@ -8,18 +10,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javazoom.jl.decoder.JavaLayerException;
 
+import javax.sound.midi.Synthesizer;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 public class Controller extends DictionaryManagement implements Initializable {
@@ -41,6 +46,7 @@ public class Controller extends DictionaryManagement implements Initializable {
     public TextField editWordTextField;
     public TextField newWordTextField;
     public TextField newWordExplainTextField;
+    public JFXButton speechButton;
 
 
     ObservableList<String> data = FXCollections.observableArrayList();
@@ -74,11 +80,13 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     public void displayWordAndAddToRecent(MouseEvent actionEvent) {
         String word = listView.getSelectionModel().getSelectedItem();
-        if (recentData.contains(word)) recentData.remove(word);
-        recentData.add(word);
-        recentListView.getItems().clear();
-        recentListView.getItems().addAll(recentData);
-        String definition = new String();
+        if (word != null) {
+            recentData.remove(word);
+            recentData.add(word);
+            recentListView.getItems().clear();
+            recentListView.getItems().addAll(recentData);
+        }
+        String definition = "";
         if (word == null || word.isEmpty()) {
             label2.setText("");
         } else {
@@ -200,4 +208,8 @@ public class Controller extends DictionaryManagement implements Initializable {
         label2.setText("You exported the \n dictionary to file \n'" + fileNameTextField.getText() + ".txt'!");
         fileNameTextField.setText("");
     }
+
+    public void textToSpeech(ActionEvent actionEvent) throws Exception {
+    }
+
 }

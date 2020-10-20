@@ -83,6 +83,18 @@
                                           <Font size="45.0" />
                                        </font>
                                     </Label>
+                                    <JFXButton fx:id="speechButton" layoutX="535.0" layoutY="14.0" onAction="#textToSpeech" prefHeight="43.0" prefWidth="39.0">
+                                       <font>
+                                          <Font size="1.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="54.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="file:/F:/TheSon/Codejava/DictionaryFinal3/Resources/Image/volume.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </content>
