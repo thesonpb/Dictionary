@@ -135,7 +135,7 @@ public class DictionaryManagement {
         }
         //viết vào file.
         try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\filename.txt");
+            FileWriter myWriter = new FileWriter("Resources\\Text\\filename.txt");
             for (String key : envi.words.keySet()) {
                 myWriter.write(key + "\t" + envi.words.get(key) + "\n");
             }
@@ -145,4 +145,6 @@ public class DictionaryManagement {
             e.printStackTrace();
         }
     }
+
+
 }

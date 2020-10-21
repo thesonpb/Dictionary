@@ -21,7 +21,7 @@ public class Main extends Application {
 
     public static void main(String[] args) throws Exception {
 
-        DictionaryManagement.insertFromFile("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
+        DictionaryManagement.insertFromFile("Resources\\Text\\Dict.txt");
         DictionaryCommandline.showAllWords();
         launch(args);
     }

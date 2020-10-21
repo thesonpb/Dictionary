@@ -20,12 +20,15 @@ import javafx.stage.Stage;
 import javazoom.jl.decoder.JavaLayerException;
 
 import javax.sound.midi.Synthesizer;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import java.io.FileOutputStream;
+
 import com.voicerss.tts.AudioCodec;
 import com.voicerss.tts.AudioFormat;
 import com.voicerss.tts.Languages;
@@ -37,10 +40,9 @@ import com.voicerss.tts.VoiceParameters;
 import com.voicerss.tts.VoiceProvider;
 
 import java.io.File;
+
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
-
 
 
 public class Controller extends DictionaryManagement implements Initializable {
@@ -70,17 +72,34 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadData();
+        try {
+            loadData();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         //lấy dữ liệu được nhập vào trong thanh tìm kiếm để tìm từ tương tự
         textField.textProperty().addListener((observable, oldValue, newValue) -> dictionarySearch(newValue));
     }
 
-    private void loadData() {
+    private void loadData() throws FileNotFoundException {
         data.removeAll(data);
         for (String key : envi.words.keySet()) {
             if (key.startsWith(textField.getText())) data.add(key);
         }
         listView.getItems().addAll(data);
+        recentData.removeAll(recentData);
+        File file = new File("Resources\\Text\\Recent.txt");
+        Scanner sc = new Scanner(file);
+        while (sc.hasNextLine()) {
+            String line = sc.nextLine();
+            if (!recentData.contains(line)) {
+                recentData.add(line);
+            }
+        }
+        for (int i = recentData.size() - 1; i >= 0; --i) {
+            recentListView.getItems().add(recentData.get(i));
+        }
+
     }
 
     public void dictionarySearch(String s) {
@@ -97,10 +116,23 @@ public class Controller extends DictionaryManagement implements Initializable {
     public void displayWordAndAddToRecent(MouseEvent actionEvent) {
         String word = listView.getSelectionModel().getSelectedItem();
         if (word != null) {
+            if (!recentData.contains(word)) {
+                try {
+                    FileWriter myWriter = new FileWriter("Resources\\Text\\Recent.txt", true);
+                    BufferedWriter out = new BufferedWriter(myWriter);
+                    out.write(word + "\n");
+                    out.close();
+                } catch (IOException e) {
+                    System.out.println("an error occured");
+                    e.printStackTrace();
+                }
+            }
             recentData.remove(word);
             recentData.add(word);
             recentListView.getItems().clear();
-            recentListView.getItems().addAll(recentData);
+            for (int i = recentData.size() - 1; i >= 0; --i) {
+                recentListView.getItems().add(recentData.get(i));
+            }
         }
         String definition = "";
         if (word == null || word.isEmpty()) {
@@ -120,7 +152,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         //envi.words.put(addWordTextField.getText(), addExplainTextField.getText());
         //viet vao trong file input
         try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt", true);
+            FileWriter myWriter = new FileWriter("Resources\\Text\\Dict.txt", true);
             BufferedWriter out = new BufferedWriter(myWriter);
             out.write(addWordTextField.getText() + "\t" + addExplainTextField.getText() + "\n");
             out.close();
@@ -131,7 +163,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         //xoa het tu trong map
         envi.words.clear();
         //insert lai vao trong map
-        insertFromFile("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
+        insertFromFile("Resources\\Text\\Dict.txt");
         //hien thi lai danh sach tu
         dictionarySearch("");
         label2.setText("You added the word '" + addWordTextField.getText() + "'!");
@@ -144,7 +176,7 @@ public class Controller extends DictionaryManagement implements Initializable {
             envi.words.remove(editWordTextField.getText());
             envi.words.put(newWordTextField.getText(), newWordExplainTextField.getText());
             try {
-                FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
+                FileWriter myWriter = new FileWriter("Resources\\Text\\Dict.txt");
                 BufferedWriter out = new BufferedWriter(myWriter);
                 for (String key : DictionaryManagement.envi.words.keySet()) {
                     out.write(key + "\t" + envi.words.get(key) + "\n");
@@ -173,7 +205,7 @@ public class Controller extends DictionaryManagement implements Initializable {
 
             //viet lai file text theo tu dien
             try {
-                FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\Resources\\Text\\Dict.txt");
+                FileWriter myWriter = new FileWriter("Resources\\Text\\Dict.txt");
                 BufferedWriter out = new BufferedWriter(myWriter);
                 for (String key : DictionaryManagement.envi.words.keySet()) {
                     out.write(key + "\t" + envi.words.get(key) + "\n");
@@ -200,7 +232,7 @@ public class Controller extends DictionaryManagement implements Initializable {
 
     public void createTextFile(ActionEvent actionEvent) {
         try {
-            File myFile = new File(fileNameTextField.getText() + ".txt");
+            File myFile = new File("Resources\\OutputFile\\" + fileNameTextField.getText() + ".txt");
             if (myFile.createNewFile()) {
                 System.out.println("File created: " + myFile.getName());
             } else {
@@ -212,7 +244,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         }
         //viết vào file.
         try {
-            FileWriter myWriter = new FileWriter("F:\\TheSon\\Codejava\\DictionaryFinal3\\" + fileNameTextField.getText() + ".txt");
+            FileWriter myWriter = new FileWriter("Resources\\OutputFile\\" + fileNameTextField.getText() + ".txt");
             for (String key : envi.words.keySet()) {
                 myWriter.write(key + "\t" + envi.words.get(key) + "\n");
             }
@@ -228,7 +260,7 @@ public class Controller extends DictionaryManagement implements Initializable {
     public void textToSpeech(ActionEvent actionEvent) throws Exception {
         VoiceProvider tts = new VoiceProvider("2130d5966a01404e94526dd3ccdb4062");
 
-        VoiceParameters params = new VoiceParameters("Hello, world!", Languages.English_UnitedStates);
+        VoiceParameters params = new VoiceParameters(textField.getText(), Languages.English_UnitedStates);
         params.setCodec(AudioCodec.WAV);
         params.setFormat(AudioFormat.Format_44KHZ.AF_44khz_16bit_stereo);
         params.setBase64(false);
@@ -237,12 +269,12 @@ public class Controller extends DictionaryManagement implements Initializable {
 
         byte[] voice = tts.speech(params);
 
-        FileOutputStream fos = new FileOutputStream("voice.mp3");
+        FileOutputStream fos = new FileOutputStream("Resources\\voice.mp3");
         fos.write(voice, 0, voice.length);
         fos.flush();
         fos.close();
         String bip = "voice.mp3";
-        Media hit = new Media(new File("F:\\TheSon\\Codejava\\DictionaryFinal3\\voice.mp3").toURI().toString());
+        Media hit = new Media(new File("Resources\\voice.mp3").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.play();
     }
