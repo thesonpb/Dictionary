@@ -25,6 +25,22 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import java.io.FileOutputStream;
+import com.voicerss.tts.AudioCodec;
+import com.voicerss.tts.AudioFormat;
+import com.voicerss.tts.Languages;
+import com.voicerss.tts.SpeechDataEvent;
+import com.voicerss.tts.SpeechDataEventListener;
+import com.voicerss.tts.SpeechErrorEvent;
+import com.voicerss.tts.SpeechErrorEventListener;
+import com.voicerss.tts.VoiceParameters;
+import com.voicerss.tts.VoiceProvider;
+
+import java.io.File;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+
 
 
 public class Controller extends DictionaryManagement implements Initializable {
@@ -210,6 +226,25 @@ public class Controller extends DictionaryManagement implements Initializable {
     }
 
     public void textToSpeech(ActionEvent actionEvent) throws Exception {
+        VoiceProvider tts = new VoiceProvider("2130d5966a01404e94526dd3ccdb4062");
+
+        VoiceParameters params = new VoiceParameters("Hello, world!", Languages.English_UnitedStates);
+        params.setCodec(AudioCodec.WAV);
+        params.setFormat(AudioFormat.Format_44KHZ.AF_44khz_16bit_stereo);
+        params.setBase64(false);
+        params.setSSML(false);
+        params.setRate(0);
+
+        byte[] voice = tts.speech(params);
+
+        FileOutputStream fos = new FileOutputStream("voice.mp3");
+        fos.write(voice, 0, voice.length);
+        fos.flush();
+        fos.close();
+        String bip = "voice.mp3";
+        Media hit = new Media(new File("F:\\TheSon\\Codejava\\DictionaryFinal3\\voice.mp3").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
 
 }

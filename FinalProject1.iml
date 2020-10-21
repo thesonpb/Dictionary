@@ -44,5 +44,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jl1.0" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/voicerss_tts_java/voicerss_tts.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
