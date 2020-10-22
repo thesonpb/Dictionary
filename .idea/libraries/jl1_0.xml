@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/jl1.0.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/gtranslateapi-1.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/voicerss_tts_java/voicerss_tts.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

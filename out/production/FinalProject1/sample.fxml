@@ -78,7 +78,7 @@
                            <content>
                               <AnchorPane prefHeight="200.0" prefWidth="627.0">
                                  <children>
-                                    <Label fx:id="label2" alignment="TOP_LEFT" layoutX="95.0" layoutY="-5.0" prefHeight="640.0" prefWidth="627.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
+                                    <Label fx:id="label2" alignment="TOP_LEFT" layoutX="95.0" layoutY="-5.0" prefHeight="206.0" prefWidth="627.0" AnchorPane.bottomAnchor="353.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
                                        <font>
                                           <Font size="45.0" />
                                        </font>
@@ -95,6 +95,11 @@
                                           </ImageView>
                                        </graphic>
                                     </JFXButton>
+                                    <Label fx:id="notifyArea" alignment="TOP_LEFT" layoutY="201.0" prefHeight="351.0" prefWidth="627.0">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                            </content>

@@ -2,6 +2,7 @@ import com.gtranslate.Audio;
 import com.gtranslate.Language;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 import javazoom.jl.decoder.JavaLayerException;
 
 import javax.sound.midi.Synthesizer;
+import java.nio.file.WatchEvent;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -44,6 +46,21 @@ import java.io.File;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+
+import java.io.File;
+
+import javafx.scene.media.MediaPlayer;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import java.util.ServiceLoader;
 
 public class Controller extends DictionaryManagement implements Initializable {
 
@@ -65,6 +82,7 @@ public class Controller extends DictionaryManagement implements Initializable {
     public TextField newWordTextField;
     public TextField newWordExplainTextField;
     public JFXButton speechButton;
+    public Label notifyArea;
 
 
     ObservableList<String> data = FXCollections.observableArrayList();
@@ -166,7 +184,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         insertFromFile("Resources\\Text\\Dict.txt");
         //hien thi lai danh sach tu
         dictionarySearch("");
-        label2.setText("You added the word '" + addWordTextField.getText() + "'!");
+        notifyArea.setText("You added the word '" + addWordTextField.getText() + "'!");
         addWordTextField.setText("");
         addExplainTextField.setText("");
     }
@@ -186,12 +204,12 @@ public class Controller extends DictionaryManagement implements Initializable {
                 System.out.println("an error occured");
                 e.printStackTrace();
             }
-            label2.setText("You changed the word '" + "\n" + editWordTextField.getText() + "' to '" + newWordTextField.getText() + "'!");
+            notifyArea.setText("You changed the word '"  + editWordTextField.getText() + "' to '" + newWordTextField.getText() + "'!");
             editWordTextField.setText("");
             newWordTextField.setText("");
             newWordExplainTextField.setText("");
         } else {
-            label2.setText("Word not found!");
+            notifyArea.setText("Word not found!");
         }
         dictionarySearch("");
 
@@ -215,10 +233,10 @@ public class Controller extends DictionaryManagement implements Initializable {
                 System.out.println("an error occured");
                 e.printStackTrace();
             }
-            label2.setText("You deleted the word '" + deleteTextField.getText() + "'!");
+            notifyArea.setText("You deleted the word '" + deleteTextField.getText() + "'!");
             deleteTextField.setText("");
         } else {
-            label2.setText("Word not found!");
+            notifyArea.setText("Word not found!");
         }
         dictionarySearch("");
 
@@ -253,7 +271,7 @@ public class Controller extends DictionaryManagement implements Initializable {
             System.out.println("an error occured");
             e.printStackTrace();
         }
-        label2.setText("You exported the \n dictionary to file \n'" + fileNameTextField.getText() + ".txt'!");
+        notifyArea.setText("You exported the dictionary to file '" + fileNameTextField.getText() + ".txt'!");
         fileNameTextField.setText("");
     }
 
@@ -269,14 +287,25 @@ public class Controller extends DictionaryManagement implements Initializable {
 
         byte[] voice = tts.speech(params);
 
-        FileOutputStream fos = new FileOutputStream("Resources\\voice.mp3");
+        FileOutputStream fos = new FileOutputStream("src\\voice.mp3");
         fos.write(voice, 0, voice.length);
         fos.flush();
         fos.close();
-        String bip = "voice.mp3";
-        Media hit = new Media(new File("Resources\\voice.mp3").toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.play();
+
+        //auto-reload mp3 file
+        ServiceLoader<PolicyUtils.ServiceProvider> serviceLoader = ServiceLoader.load(PolicyUtils.ServiceProvider.class);
+        serviceLoader.reload();
+
+
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("voice.mp3"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 
 }

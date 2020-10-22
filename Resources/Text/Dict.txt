@@ -1,4 +1,4 @@
-apple	Quả táo
+apple 	tao
 artist	nghệ sĩ
 assume	Giả định
 babe	bé yêu
