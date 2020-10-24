@@ -19,3 +19,7 @@ mulberry
 singer
 whale
 cow
+dm
+elbow
+zebra
+greentree

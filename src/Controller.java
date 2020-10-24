@@ -55,10 +55,11 @@ import javazoom.jl.player.Player;
 import java.io.File;
 
 import javafx.scene.media.MediaPlayer;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
+
 
 import java.util.ServiceLoader;
 
@@ -287,25 +288,14 @@ public class Controller extends DictionaryManagement implements Initializable {
 
         byte[] voice = tts.speech(params);
 
-        FileOutputStream fos = new FileOutputStream("src\\voice.mp3");
+        FileOutputStream fos = new FileOutputStream("src\\voice.wav");
         fos.write(voice, 0, voice.length);
         fos.flush();
         fos.close();
 
-        //auto-reload mp3 file
-        ServiceLoader<PolicyUtils.ServiceProvider> serviceLoader = ServiceLoader.load(PolicyUtils.ServiceProvider.class);
-        serviceLoader.reload();
-
-
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("voice.mp3"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
+        InputStream in = new FileInputStream(new File("src\\voice.wav"));
+        AudioStream sound = new AudioStream(in);
+        AudioPlayer.player.start(sound);
     }
 
 }
