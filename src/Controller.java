@@ -186,6 +186,8 @@ public class Controller extends DictionaryManagement implements Initializable {
         insertFromFile("Resources\\Text\\Dict.txt");
         //hien thi lai danh sach tu
         dictionarySearch("");
+        label2.setText("");
+        dictionarySearch("");
         notifyArea.setText("You added the word '" + addWordTextField.getText() + "'!");
         addWordTextField.setText("");
         addExplainTextField.setText("");
@@ -206,6 +208,8 @@ public class Controller extends DictionaryManagement implements Initializable {
                 System.out.println("an error occured");
                 e.printStackTrace();
             }
+            label2.setText("");
+            dictionarySearch("");
             notifyArea.setText("You changed the word '"  + editWordTextField.getText() + "' to '" + newWordTextField.getText() + "'!");
             editWordTextField.setText("");
             newWordTextField.setText("");
@@ -235,6 +239,8 @@ public class Controller extends DictionaryManagement implements Initializable {
                 System.out.println("an error occured");
                 e.printStackTrace();
             }
+            label2.setText("");
+            dictionarySearch("");
             notifyArea.setText("You deleted the word '" + deleteTextField.getText() + "'!");
             deleteTextField.setText("");
         } else {
@@ -273,6 +279,8 @@ public class Controller extends DictionaryManagement implements Initializable {
             System.out.println("an error occured");
             e.printStackTrace();
         }
+        label2.setText("");
+        dictionarySearch("");
         notifyArea.setText("You exported the dictionary to file '" + fileNameTextField.getText() + ".txt'!");
         fileNameTextField.setText("");
     }

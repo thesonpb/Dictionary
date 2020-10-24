@@ -95,3 +95,4 @@ wolf	con soi
 worker	cong nhan
 writer	nha van
 zebra	con ngua van
+cat	con meo
