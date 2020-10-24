@@ -163,6 +163,7 @@ public class Controller extends DictionaryManagement implements Initializable {
                     textField.setText(key);
                 }
             }
+            notifyArea.setText("");
             label2.setText(definition);
         }
     }
