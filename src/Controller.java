@@ -1,67 +1,21 @@
-import com.gtranslate.Audio;
-import com.gtranslate.Language;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import com.voicerss.tts.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-
-import java.io.*;
-import java.net.URL;
-
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javazoom.jl.decoder.JavaLayerException;
-
-import javax.sound.midi.Synthesizer;
-import java.nio.file.WatchEvent;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import java.io.FileOutputStream;
-
-import com.voicerss.tts.AudioCodec;
-import com.voicerss.tts.AudioFormat;
-import com.voicerss.tts.Languages;
-import com.voicerss.tts.SpeechDataEvent;
-import com.voicerss.tts.SpeechDataEventListener;
-import com.voicerss.tts.SpeechErrorEvent;
-import com.voicerss.tts.SpeechErrorEventListener;
-import com.voicerss.tts.VoiceParameters;
-import com.voicerss.tts.VoiceProvider;
-
-import java.io.File;
-
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
-
-import java.io.File;
-
-import javafx.scene.media.MediaPlayer;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
-import javax.sound.sampled.*;
-
-
-import java.util.ServiceLoader;
+import java.io.*;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class Controller extends DictionaryManagement implements Initializable {
 

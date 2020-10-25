@@ -1,8 +1,8 @@
 actor	dien vien
+actress	dien vien nu
 apple	tao
 artist	nghệ sĩ
 assume	Giả định
-babe	bé yêu
 baby	em bé
 bear	con gau
 bee	con ong
