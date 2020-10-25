@@ -169,28 +169,35 @@ public class Controller extends DictionaryManagement implements Initializable {
     }
 
     public void addWord(ActionEvent actionEvent) throws Exception {
-        //envi.words.put(addWordTextField.getText(), addExplainTextField.getText());
-        //viet vao trong file input
-        try {
-            FileWriter myWriter = new FileWriter("Resources\\Text\\Dict.txt", true);
-            BufferedWriter out = new BufferedWriter(myWriter);
-            out.write(addWordTextField.getText() + "\t" + addExplainTextField.getText() + "\n");
-            out.close();
-        } catch (IOException e) {
-            System.out.println("an error occured");
-            e.printStackTrace();
+        if (envi.words.containsKey(addWordTextField.getText())) {
+            notifyArea.setText("Word already exist.");
+        } else {
+            envi.words.put(addWordTextField.getText(), addExplainTextField.getText());
+            try {
+                FileWriter myWriter = new FileWriter("Resources\\Text\\Dict.txt");
+                BufferedWriter out = new BufferedWriter(myWriter);
+                for (String key : DictionaryManagement.envi.words.keySet()) {
+                    out.write(key + "\t" + envi.words.get(key) + "\n");
+                }
+                out.close();
+            } catch (IOException e) {
+                System.out.println("an error occured");
+                e.printStackTrace();
+            }
+
+            //xoa het tu trong map
+            envi.words.clear();
+            //insert lai vao trong map
+            insertFromFile("Resources\\Text\\Dict.txt");
+            //hien thi lai danh sach tu
+            dictionarySearch("");
+            label2.setText("");
+            dictionarySearch("");
+            notifyArea.setText("You added the word '" + addWordTextField.getText() + "'!");
+            addWordTextField.setText("");
+            addExplainTextField.setText("");
         }
-        //xoa het tu trong map
-        envi.words.clear();
-        //insert lai vao trong map
-        insertFromFile("Resources\\Text\\Dict.txt");
-        //hien thi lai danh sach tu
-        dictionarySearch("");
-        label2.setText("");
-        dictionarySearch("");
-        notifyArea.setText("You added the word '" + addWordTextField.getText() + "'!");
-        addWordTextField.setText("");
-        addExplainTextField.setText("");
+
     }
 
     public void editWord(ActionEvent actionEvent) throws Exception {
@@ -210,7 +217,7 @@ public class Controller extends DictionaryManagement implements Initializable {
             }
             label2.setText("");
             dictionarySearch("");
-            notifyArea.setText("You changed the word '"  + editWordTextField.getText() + "' to '" + newWordTextField.getText() + "'!");
+            notifyArea.setText("You changed the word '" + editWordTextField.getText() + "' to '" + newWordTextField.getText() + "'!");
             editWordTextField.setText("");
             newWordTextField.setText("");
             newWordExplainTextField.setText("");

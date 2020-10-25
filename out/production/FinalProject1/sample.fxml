@@ -31,7 +31,7 @@
          <children>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="960.0" prefWidth="346.0">
                     <children>
-                        <AnchorPane layoutY="-29.0" prefHeight="131.0" prefWidth="346.0" style="-fx-background-color: rgb(105, 189, 210);" AnchorPane.bottomAnchor="589.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane prefHeight="131.0" prefWidth="346.0" style="-fx-background-color: rgb(105, 189, 210);">
                             <children>
                                 <Label layoutX="100.0" layoutY="48.0" prefHeight="52.0" prefWidth="178.0" style="-fx-underline: true; -fx-font-weight: bold; -fx-font-size: 45;" text="Search" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.0">
                                     <font>
@@ -50,7 +50,7 @@
                                 <Font size="24.0" />
                             </font>
                   </TextField>
-                        <ListView fx:id="listView" layoutY="183.0" onMouseClicked="#displayWordAndAddToRecent" prefHeight="537.0" prefWidth="346.0" style="-fx-font-size: 24;">
+                        <ListView fx:id="listView" layoutY="183.0" onMouseClicked="#displayWordAndAddToRecent" prefHeight="537.0" prefWidth="346.0" style="-fx-font-size: 24;" AnchorPane.leftAnchor="0.0">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>

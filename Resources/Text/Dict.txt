@@ -1,4 +1,5 @@
-apple 	tao
+actor	dien vien
+apple	tao
 artist	nghệ sĩ
 assume	Giả định
 babe	bé yêu
@@ -20,7 +21,6 @@ cow	con bo
 crab	con cua
 cranberry	qua nam viet quat
 dancer	vu cong
-dm	fuck
 dog	con cho
 dolphin	con ca heo
 duck	con vit
@@ -32,6 +32,7 @@ eyelash	long mi
 farmer	nong dan
 finger	ngon tay
 fish	con ca
+fly	bay
 foot	ban chan
 fox	con cao
 giraffe	con huou cao co
@@ -95,4 +96,3 @@ wolf	con soi
 worker	cong nhan
 writer	nha van
 zebra	con ngua van
-cat	con meo

@@ -15,6 +15,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         primaryStage.setTitle("Homemade Dictionary");
         primaryStage.setScene(new Scene(root, 1280, 720));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
