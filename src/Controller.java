@@ -38,6 +38,7 @@ public class Controller extends DictionaryManagement implements Initializable {
     public TextField newWordExplainTextField;
     public JFXButton speechButton;
     public Label notifyArea;
+    public Label definitionArea;
 
 
     ObservableList<String> data = FXCollections.observableArrayList();
@@ -110,6 +111,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         String definition = "";
         if (word == null || word.isEmpty()) {
             label2.setText("");
+            definitionArea.setText("");
         } else {
             for (String key : envi.words.keySet()) {
                 if (key.equals(word)) {
@@ -118,7 +120,8 @@ public class Controller extends DictionaryManagement implements Initializable {
                 }
             }
             notifyArea.setText("");
-            label2.setText(definition);
+            label2.setText(word);
+            definitionArea.setText("\n"+definition);
         }
     }
 
@@ -146,6 +149,7 @@ public class Controller extends DictionaryManagement implements Initializable {
             //hien thi lai danh sach tu
             dictionarySearch("");
             label2.setText("");
+            definitionArea.setText("");
             dictionarySearch("");
             notifyArea.setText("You added the word '" + addWordTextField.getText() + "'!");
             addWordTextField.setText("");
@@ -153,6 +157,7 @@ public class Controller extends DictionaryManagement implements Initializable {
         }
 
     }
+
 
     public void editWord(ActionEvent actionEvent) throws Exception {
         if (envi.words.containsKey(editWordTextField.getText())) {
@@ -170,6 +175,7 @@ public class Controller extends DictionaryManagement implements Initializable {
                 e.printStackTrace();
             }
             label2.setText("");
+            definitionArea.setText("");
             dictionarySearch("");
             notifyArea.setText("You changed the word '" + editWordTextField.getText() + "' to '" + newWordTextField.getText() + "'!");
             editWordTextField.setText("");
@@ -201,6 +207,7 @@ public class Controller extends DictionaryManagement implements Initializable {
                 e.printStackTrace();
             }
             label2.setText("");
+            definitionArea.setText("");
             dictionarySearch("");
             notifyArea.setText("You deleted the word '" + deleteTextField.getText() + "'!");
             deleteTextField.setText("");
@@ -215,6 +222,7 @@ public class Controller extends DictionaryManagement implements Initializable {
     public void resetTextField(ActionEvent actionEvent) {
         textField.setText("");
         label2.setText("");
+        definitionArea.setText("");
     }
 
     public void createTextFile(ActionEvent actionEvent) {
@@ -241,6 +249,7 @@ public class Controller extends DictionaryManagement implements Initializable {
             e.printStackTrace();
         }
         label2.setText("");
+        definitionArea.setText("");
         dictionarySearch("");
         notifyArea.setText("You exported the dictionary to file '" + fileNameTextField.getText() + ".txt'!");
         fileNameTextField.setText("");
