@@ -1,5 +1,4 @@
-actor	dien vien
-actress	dien vien nu
+abc	xyz
 apple	tao
 artist	nghệ sĩ
 assume	Giả định
@@ -90,6 +89,7 @@ teacher	giao vien
 thumb	ngon tro
 tiger	con ho
 tomato	qua ca chua
+waitor	boi ban
 watermelon	qua dua hau
 whale	con ca voi
 wolf	con soi

@@ -20,7 +20,6 @@ import java.util.Scanner;
 public class Controller extends DictionaryManagement implements Initializable {
 
     public TextField textField;
-
     public Label label2;
     public ListView<String> listView;
     public TextField addExplainTextField;

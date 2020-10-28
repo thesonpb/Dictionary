@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/fontawesomefx-8.9.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Some JavaFX library/voicerss_tts_java/voicerss_tts.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/jfoenix-8.0.10.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Some JavaFX library/fontawesomefx-8.9.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,26 +28,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/gtranslateapi-1.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/jl1.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="jl1.0" level="project" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/voicerss_tts_java/voicerss_tts.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Some JavaFX library/jfoenix-8.0.10.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
